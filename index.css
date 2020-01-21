@@ -54,7 +54,7 @@ a {
     padding: 0 16px 16px;
     margin: 10px;
     box-sizing: border-box;
-    transition: all .3s;
+    transition: box-shadow .3s;
 }
 
 .link:hover {
