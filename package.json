@@ -5,6 +5,7 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
+        "postbuild": "node postbuild.js",
         "lint": "ng lint",
         "typecheck": "tsc --noEmit --skipLibCheck"
     },
