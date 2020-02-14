@@ -2,7 +2,8 @@ body,
 html {
     margin: 0;
     height: 100%;
-    font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-family: Roboto, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+        'Lucida Grande', sans-serif;
     color: #444;
 }
 
@@ -54,7 +55,18 @@ a {
     padding: 0 16px 16px;
     margin: 10px;
     box-sizing: border-box;
-    transition: box-shadow .3s;
+    transition: box-shadow 0.3s;
+}
+
+.not-supported {
+    opacity: 0.5;
+}
+
+.not-supported h2:after {
+    content: 'Not supported by your browser';
+    display: block;
+    font-size: 0.6em;
+    color: red;
 }
 
 .link:last-child {
