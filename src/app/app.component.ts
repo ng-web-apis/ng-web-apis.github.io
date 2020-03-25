@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {GEOLOCATION_SUPPORT} from '@ng-web-apis/geolocation';
+import {INTERSECTION_OBSERVER_SUPPORT} from '@ng-web-apis/intersection-observer';
 import {MIDI_SUPPORT} from '@ng-web-apis/midi';
 import {PAYMENT_REQUEST_SUPPORT} from '@ng-web-apis/payment-request';
 
@@ -14,6 +15,7 @@ export class AppComponent {
     constructor(
         @Inject(PAYMENT_REQUEST_SUPPORT) readonly paymentRequestSupport: boolean,
         @Inject(GEOLOCATION_SUPPORT) readonly geolocationSupport: boolean,
+        @Inject(INTERSECTION_OBSERVER_SUPPORT) readonly intersectionSupport: boolean,
         @Inject(MIDI_SUPPORT) readonly midiSupport: boolean,
     ) {}
 }

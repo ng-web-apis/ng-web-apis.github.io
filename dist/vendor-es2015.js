@@ -69758,6 +69758,532 @@ Please check that 1) the type for the parameter at index ${index} is correct and
                 /***/
             },
 
+        /***/ './node_modules/@ng-web-apis/intersection-observer/__ivy_ngcc__/fesm2015/ng-web-apis-intersection-observer.js':
+            /*!********************************************************************************************************************!*\
+  !*** ./node_modules/@ng-web-apis/intersection-observer/__ivy_ngcc__/fesm2015/ng-web-apis-intersection-observer.js ***!
+  \********************************************************************************************************************/
+            /*! exports provided: IntersectionObserverDirective, intersectionRootFactory, IntersectionRootDirective, IntersectionObserverModule, INTERSECTION_ROOT, INTERSECTION_OBSERVER_SUPPORT */
+            /***/ function(module, __webpack_exports__, __webpack_require__) {
+                'use strict';
+                __webpack_require__.r(__webpack_exports__);
+                /* harmony export (binding) */ __webpack_require__.d(
+                    __webpack_exports__,
+                    'IntersectionObserverDirective',
+                    function() {
+                        return IntersectionObserverDirective;
+                    },
+                );
+                /* harmony export (binding) */ __webpack_require__.d(
+                    __webpack_exports__,
+                    'intersectionRootFactory',
+                    function() {
+                        return intersectionRootFactory;
+                    },
+                );
+                /* harmony export (binding) */ __webpack_require__.d(
+                    __webpack_exports__,
+                    'IntersectionRootDirective',
+                    function() {
+                        return IntersectionRootDirective;
+                    },
+                );
+                /* harmony export (binding) */ __webpack_require__.d(
+                    __webpack_exports__,
+                    'IntersectionObserverModule',
+                    function() {
+                        return IntersectionObserverModule;
+                    },
+                );
+                /* harmony export (binding) */ __webpack_require__.d(
+                    __webpack_exports__,
+                    'INTERSECTION_ROOT',
+                    function() {
+                        return INTERSECTION_ROOT;
+                    },
+                );
+                /* harmony export (binding) */ __webpack_require__.d(
+                    __webpack_exports__,
+                    'INTERSECTION_OBSERVER_SUPPORT',
+                    function() {
+                        return INTERSECTION_OBSERVER_SUPPORT;
+                    },
+                );
+                /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+                    /*! @angular/common */ './node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js',
+                );
+                /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+                    /*! @angular/core */ './node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js',
+                );
+                /* harmony import */ var _ng_web_apis_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+                    /*! @ng-web-apis/common */ './node_modules/@ng-web-apis/common/__ivy_ngcc__/fesm2015/ng-web-apis-common.js',
+                );
+
+                /**
+                 * @fileoverview added by tsickle
+                 * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+                 */
+                /** @type {?} */
+
+                const INTERSECTION_ROOT = new _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                    'InjectionToken'
+                ]('Root element for IntersectionObserver');
+
+                /**
+                 * @fileoverview added by tsickle
+                 * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+                 */
+                /** @type {?} */
+                const DEFAULT_MARGIN = '0px 0px 0px 0px';
+                /** @type {?} */
+                const DEFAULT_THRESHOLD = 0;
+                // @dynamic
+                class IntersectionObserverDirective extends IntersectionObserver {
+                    /**
+                     * @param {?} elementRef
+                     * @param {?} root
+                     * @param {?} documentRef
+                     * @param {?} selector
+                     * @param {?} margin
+                     * @param {?} threshold
+                     */
+                    constructor(
+                        elementRef,
+                        root,
+                        documentRef,
+                        selector,
+                        margin,
+                        threshold,
+                    ) {
+                        super(
+                            entry => {
+                                this.waIntersectionObserver.emit(entry);
+                            },
+                            {
+                                root: selector
+                                    ? documentRef.querySelector(selector) || root
+                                    : root,
+                                rootMargin: margin || DEFAULT_MARGIN,
+                                threshold: threshold
+                                    ? threshold.split(',').map(value => parseFloat(value))
+                                    : DEFAULT_THRESHOLD,
+                            },
+                        );
+                        this.elementRef = elementRef;
+                        this.waIntersectionObserver = new _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                            'EventEmitter'
+                        ]();
+                        this.observe(this.elementRef.nativeElement);
+                    }
+                    /**
+                     * @return {?}
+                     */
+                    ngOnDestroy() {
+                        this.unobserve(this.elementRef.nativeElement);
+                    }
+                }
+                IntersectionObserverDirective.ɵfac = function IntersectionObserverDirective_Factory(
+                    t,
+                ) {
+                    return new (t || IntersectionObserverDirective)(
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵɵdirectiveInject'](
+                            _angular_core__WEBPACK_IMPORTED_MODULE_1__['ElementRef'],
+                        ),
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵɵdirectiveInject'](
+                            INTERSECTION_ROOT,
+                            8,
+                        ),
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵɵdirectiveInject'](
+                            _angular_common__WEBPACK_IMPORTED_MODULE_0__['DOCUMENT'],
+                        ),
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵɵinjectAttribute'](
+                            'waIntersectionRootSelector',
+                        ),
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵɵinjectAttribute'](
+                            'waIntersectionRootMargin',
+                        ),
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵɵinjectAttribute'](
+                            'waIntersectionThreshold',
+                        ),
+                    );
+                };
+                IntersectionObserverDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                    'ɵɵdefineDirective'
+                ]({
+                    type: IntersectionObserverDirective,
+                    selectors: [['', 'waIntersectionObserver', '']],
+                    outputs: {waIntersectionObserver: 'waIntersectionObserver'},
+                    features: [
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                            'ɵɵInheritDefinitionFeature'
+                        ],
+                    ],
+                });
+                /** @nocollapse */
+                IntersectionObserverDirective.ctorParameters = () => [
+                    {
+                        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__['ElementRef'],
+                        decorators: [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__['Inject'],
+                                args: [
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'ElementRef'
+                                    ],
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        type: undefined,
+                        decorators: [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'Optional'
+                                    ],
+                            },
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__['Inject'],
+                                args: [INTERSECTION_ROOT],
+                            },
+                        ],
+                    },
+                    {
+                        type: Document,
+                        decorators: [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__['Inject'],
+                                args: [
+                                    _angular_common__WEBPACK_IMPORTED_MODULE_0__[
+                                        'DOCUMENT'
+                                    ],
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        type: undefined,
+                        decorators: [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'Attribute'
+                                    ],
+                                args: ['waIntersectionRootSelector'],
+                            },
+                        ],
+                    },
+                    {
+                        type: undefined,
+                        decorators: [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'Attribute'
+                                    ],
+                                args: ['waIntersectionRootMargin'],
+                            },
+                        ],
+                    },
+                    {
+                        type: undefined,
+                        decorators: [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'Attribute'
+                                    ],
+                                args: ['waIntersectionThreshold'],
+                            },
+                        ],
+                    },
+                ];
+                IntersectionObserverDirective.propDecorators = {
+                    waIntersectionObserver: [
+                        {type: _angular_core__WEBPACK_IMPORTED_MODULE_1__['Output']},
+                    ],
+                };
+                /*@__PURE__*/ (function() {
+                    _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵsetClassMetadata'](
+                        IntersectionObserverDirective,
+                        [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'Directive'
+                                    ],
+                                args: [
+                                    {
+                                        selector: '[waIntersectionObserver]',
+                                    },
+                                ],
+                            },
+                        ],
+                        function() {
+                            return [
+                                {
+                                    type:
+                                        _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                            'ElementRef'
+                                        ],
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'Inject'
+                                                ],
+                                            args: [
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'ElementRef'
+                                                ],
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: undefined,
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'Optional'
+                                                ],
+                                        },
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'Inject'
+                                                ],
+                                            args: [INTERSECTION_ROOT],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: Document,
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'Inject'
+                                                ],
+                                            args: [
+                                                _angular_common__WEBPACK_IMPORTED_MODULE_0__[
+                                                    'DOCUMENT'
+                                                ],
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: undefined,
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'Attribute'
+                                                ],
+                                            args: ['waIntersectionRootSelector'],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: undefined,
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'Attribute'
+                                                ],
+                                            args: ['waIntersectionRootMargin'],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: undefined,
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                    'Attribute'
+                                                ],
+                                            args: ['waIntersectionThreshold'],
+                                        },
+                                    ],
+                                },
+                            ];
+                        },
+                        {
+                            waIntersectionObserver: [
+                                {
+                                    type:
+                                        _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                            'Output'
+                                        ],
+                                },
+                            ],
+                        },
+                    );
+                })();
+
+                /**
+                 * @fileoverview added by tsickle
+                 * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+                 */
+                /**
+                 * @param {?} __0
+                 * @return {?}
+                 */
+                function intersectionRootFactory({nativeElement}) {
+                    return nativeElement;
+                }
+                class IntersectionRootDirective {}
+                IntersectionRootDirective.ɵfac = function IntersectionRootDirective_Factory(
+                    t,
+                ) {
+                    return new (t || IntersectionRootDirective)();
+                };
+                IntersectionRootDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                    'ɵɵdefineDirective'
+                ]({
+                    type: IntersectionRootDirective,
+                    selectors: [['', 'waIntersectionRoot', '']],
+                    features: [
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵɵProvidersFeature']([
+                            {
+                                provide: INTERSECTION_ROOT,
+                                deps: [
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'ElementRef'
+                                    ],
+                                ],
+                                useFactory: intersectionRootFactory,
+                            },
+                        ]),
+                    ],
+                });
+                /*@__PURE__*/ (function() {
+                    _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵsetClassMetadata'](
+                        IntersectionRootDirective,
+                        [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'Directive'
+                                    ],
+                                args: [
+                                    {
+                                        selector: '[waIntersectionRoot]',
+                                        providers: [
+                                            {
+                                                provide: INTERSECTION_ROOT,
+                                                deps: [
+                                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                                        'ElementRef'
+                                                    ],
+                                                ],
+                                                useFactory: intersectionRootFactory,
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                        null,
+                        null,
+                    );
+                })();
+
+                /**
+                 * @fileoverview added by tsickle
+                 * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+                 */
+                class IntersectionObserverModule {}
+                IntersectionObserverModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                    'ɵɵdefineNgModule'
+                ]({type: IntersectionObserverModule});
+                IntersectionObserverModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                    'ɵɵdefineInjector'
+                ]({
+                    factory: function IntersectionObserverModule_Factory(t) {
+                        return new (t || IntersectionObserverModule)();
+                    },
+                });
+                (function() {
+                    (typeof ngJitMode === 'undefined' || ngJitMode) &&
+                        _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                            'ɵɵsetNgModuleScope'
+                        ](IntersectionObserverModule, {
+                            declarations: [
+                                IntersectionObserverDirective,
+                                IntersectionRootDirective,
+                            ],
+                            exports: [
+                                IntersectionObserverDirective,
+                                IntersectionRootDirective,
+                            ],
+                        });
+                })();
+                /*@__PURE__*/ (function() {
+                    _angular_core__WEBPACK_IMPORTED_MODULE_1__['ɵsetClassMetadata'](
+                        IntersectionObserverModule,
+                        [
+                            {
+                                type:
+                                    _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                                        'NgModule'
+                                    ],
+                                args: [
+                                    {
+                                        declarations: [
+                                            IntersectionObserverDirective,
+                                            IntersectionRootDirective,
+                                        ],
+                                        exports: [
+                                            IntersectionObserverDirective,
+                                            IntersectionRootDirective,
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                        null,
+                        null,
+                    );
+                })();
+
+                /**
+                 * @fileoverview added by tsickle
+                 * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+                 */
+                /** @type {?} */
+                const INTERSECTION_OBSERVER_SUPPORT = new _angular_core__WEBPACK_IMPORTED_MODULE_1__[
+                    'InjectionToken'
+                ]('Intersection Observer API support', {
+                    providedIn: 'root',
+                    factory: () =>
+                        !!Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__['inject'])(
+                            _ng_web_apis_common__WEBPACK_IMPORTED_MODULE_2__['WINDOW'],
+                        ).IntersectionObserver,
+                });
+
+                /**
+                 * @fileoverview added by tsickle
+                 * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+                 */
+
+                /**
+                 * @fileoverview added by tsickle
+                 * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+                 */
+
+                //# sourceMappingURL=ng-web-apis-intersection-observer.js.map
+
+                /***/
+            },
+
         /***/ './node_modules/@ng-web-apis/midi/__ivy_ngcc__/fesm2015/ng-web-apis-midi.js':
             /*!**********************************************************************************!*\
   !*** ./node_modules/@ng-web-apis/midi/__ivy_ngcc__/fesm2015/ng-web-apis-midi.js ***!

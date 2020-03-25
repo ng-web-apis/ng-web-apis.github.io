@@ -73,13 +73,19 @@ function _classCallCheck(instance, Constructor) {
                 );
                 /* harmony import */
 
-                var _ng_web_apis_midi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+                var _ng_web_apis_intersection_observer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+                    /*! @ng-web-apis/intersection-observer */
+                    './node_modules/@ng-web-apis/intersection-observer/__ivy_ngcc__/fesm2015/ng-web-apis-intersection-observer.js',
+                );
+                /* harmony import */
+
+                var _ng_web_apis_midi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
                     /*! @ng-web-apis/midi */
                     './node_modules/@ng-web-apis/midi/__ivy_ngcc__/fesm2015/ng-web-apis-midi.js',
                 );
                 /* harmony import */
 
-                var _ng_web_apis_payment_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+                var _ng_web_apis_payment_request__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
                     /*! @ng-web-apis/payment-request */
                     './node_modules/@ng-web-apis/payment-request/__ivy_ngcc__/fesm2015/ng-web-apis-payment-request.js',
                 );
@@ -87,12 +93,14 @@ function _classCallCheck(instance, Constructor) {
                 var AppComponent = function AppComponent(
                     paymentRequestSupport,
                     geolocationSupport,
+                    intersectionSupport,
                     midiSupport,
                 ) {
                     _classCallCheck(this, AppComponent);
 
                     this.paymentRequestSupport = paymentRequestSupport;
                     this.geolocationSupport = geolocationSupport;
+                    this.intersectionSupport = intersectionSupport;
                     this.midiSupport = midiSupport; // TODO: Issue with Ivy: https://github.com/angular/angular/issues/34267
 
                     this.audioSupport =
@@ -102,7 +110,7 @@ function _classCallCheck(instance, Constructor) {
                 AppComponent.ɵfac = function AppComponent_Factory(t) {
                     return new (t || AppComponent)(
                         _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵdirectiveInject'](
-                            _ng_web_apis_payment_request__WEBPACK_IMPORTED_MODULE_3__[
+                            _ng_web_apis_payment_request__WEBPACK_IMPORTED_MODULE_4__[
                                 'PAYMENT_REQUEST_SUPPORT'
                             ],
                         ),
@@ -112,7 +120,12 @@ function _classCallCheck(instance, Constructor) {
                             ],
                         ),
                         _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵdirectiveInject'](
-                            _ng_web_apis_midi__WEBPACK_IMPORTED_MODULE_2__[
+                            _ng_web_apis_intersection_observer__WEBPACK_IMPORTED_MODULE_2__[
+                                'INTERSECTION_OBSERVER_SUPPORT'
+                            ],
+                        ),
+                        _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵdirectiveInject'](
+                            _ng_web_apis_midi__WEBPACK_IMPORTED_MODULE_3__[
                                 'MIDI_SUPPORT'
                             ],
                         ),
@@ -124,8 +137,8 @@ function _classCallCheck(instance, Constructor) {
                 ]({
                     type: AppComponent,
                     selectors: [['main']],
-                    decls: 45,
-                    vars: 8,
+                    decls: 54,
+                    vars: 10,
                     consts: [
                         [
                             'href',
@@ -184,6 +197,26 @@ function _classCallCheck(instance, Constructor) {
                             '64',
                             'alt',
                             'Geolocation API logo',
+                            1,
+                            'icon',
+                        ],
+                        [
+                            'href',
+                            'https://github.com/ng-web-apis/intersection-observer',
+                            'target',
+                            '_blank',
+                            1,
+                            'link',
+                        ],
+                        [
+                            'src',
+                            '/dist/assets/images/intersection-observer.svg',
+                            'width',
+                            '64',
+                            'height',
+                            '64',
+                            'alt',
+                            'Intersection Observer API logo',
                             1,
                             'icon',
                         ],
@@ -413,14 +446,14 @@ function _classCallCheck(instance, Constructor) {
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 30,
-                                'MIDI',
+                                'Intersection Observer',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 31,
-                                ' An Observable based library for the use of ',
+                                ' An library for declarative use of ',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
@@ -430,7 +463,7 @@ function _classCallCheck(instance, Constructor) {
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 33,
-                                'Web MIDI API',
+                                'Intersection Observer API',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
@@ -468,14 +501,14 @@ function _classCallCheck(instance, Constructor) {
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 39,
-                                'Payment Request',
+                                'MIDI',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 40,
-                                ' A library for declarative use of ',
+                                ' An Observable based library for the use of ',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
@@ -485,7 +518,7 @@ function _classCallCheck(instance, Constructor) {
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 42,
-                                'Payment Request API',
+                                'Web MIDI API',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
@@ -504,6 +537,61 @@ function _classCallCheck(instance, Constructor) {
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                45,
+                                'a',
+                                10,
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                46,
+                                'div',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                47,
+                                'h2',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                48,
+                                'Payment Request',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                49,
+                                ' A library for declarative use of ',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                50,
+                                'strong',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                51,
+                                'Payment Request API',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                52,
+                                ' with Angular ',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
+                                53,
+                                'img',
+                                11,
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                         }
 
                         if (rf & 2) {
@@ -519,6 +607,13 @@ function _classCallCheck(instance, Constructor) {
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵclassProp'](
                                 'not-supported',
                                 !ctx.geolocationSupport,
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵadvance'](9);
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵclassProp'](
+                                'not-supported',
+                                !ctx.intersectionSupport,
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵadvance'](9);
@@ -568,7 +663,7 @@ function _classCallCheck(instance, Constructor) {
                                                     'Inject'
                                                 ],
                                             args: [
-                                                _ng_web_apis_payment_request__WEBPACK_IMPORTED_MODULE_3__[
+                                                _ng_web_apis_payment_request__WEBPACK_IMPORTED_MODULE_4__[
                                                     'PAYMENT_REQUEST_SUPPORT'
                                                 ],
                                             ],
@@ -600,7 +695,23 @@ function _classCallCheck(instance, Constructor) {
                                                     'Inject'
                                                 ],
                                             args: [
-                                                _ng_web_apis_midi__WEBPACK_IMPORTED_MODULE_2__[
+                                                _ng_web_apis_intersection_observer__WEBPACK_IMPORTED_MODULE_2__[
+                                                    'INTERSECTION_OBSERVER_SUPPORT'
+                                                ],
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: undefined,
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_0__[
+                                                    'Inject'
+                                                ],
+                                            args: [
+                                                _ng_web_apis_midi__WEBPACK_IMPORTED_MODULE_3__[
                                                     'MIDI_SUPPORT'
                                                 ],
                                             ],
