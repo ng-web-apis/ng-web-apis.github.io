@@ -10,12 +10,12 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 header {
     display: flex;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 40px 10px;
     border-bottom: 1px solid gainsboro;
 }
@@ -69,8 +69,11 @@ a {
     color: red;
 }
 
-.link:last-child {
-    margin-right: auto;
+.wip h2:after {
+    content: 'Work in Progress';
+    display: block;
+    font-size: 0.6em;
+    color: red;
 }
 
 .link:hover {
