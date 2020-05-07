@@ -1,6 +1,40 @@
 (window['webpackJsonp'] = window['webpackJsonp'] || []).push([
     ['polyfills'],
     {
+        /***/ './node_modules/@ng-web-apis/audio/polyfill.js':
+            /*!*****************************************************!*\
+  !*** ./node_modules/@ng-web-apis/audio/polyfill.js ***!
+  \*****************************************************/
+            /*! no static exports found */
+            /***/ function(module, exports) {
+                var windowRef = typeof window === 'undefined' ? globalThis : window;
+
+                windowRef.AudioContext =
+                    windowRef.AudioContext || windowRef.webkitAudioContext;
+                windowRef.PannerNode =
+                    windowRef.PannerNode || windowRef.webkitAudioPannerNode;
+                windowRef.StereoPannerNode =
+                    windowRef.StereoPannerNode || windowRef.PannerNode;
+
+                // Just to compile in old browsers, these features are not supported if not supported natively
+                windowRef.BaseAudioContext =
+                    windowRef.BaseAudioContext || windowRef.AudioContext;
+                windowRef.OfflineAudioContext =
+                    windowRef.OfflineAudioContext || windowRef.AudioContext;
+                windowRef.ConstantSourceNode =
+                    windowRef.ConstantSourceNode || function() {};
+                windowRef.AudioWorkletNode = windowRef.AudioWorkletNode || function() {};
+                windowRef.IIRFilterNode = windowRef.IIRFilterNode || function() {};
+                windowRef.MediaStreamAudioDestinationNode =
+                    windowRef.MediaStreamAudioDestinationNode || function() {};
+                windowRef.MediaStreamAudioSourceNode =
+                    windowRef.MediaStreamAudioSourceNode || function() {};
+                windowRef.MediaStreamTrackAudioSourceNode =
+                    windowRef.MediaStreamTrackAudioSourceNode || function() {};
+
+                /***/
+            },
+
         /***/ './node_modules/zone.js/dist/zone-evergreen.js':
             /*!*****************************************************!*\
   !*** ./node_modules/zone.js/dist/zone-evergreen.js ***!
@@ -9,11 +43,10 @@
             /***/ function(module, exports, __webpack_require__) {
                 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;
                 /**
-                 * @license Angular v0.10.2
-                 * (c) 2010-2019 Google LLC. https://angular.io/
+                 * @license Angular v9.1.0-next.4+61.sha-e552591.with-local-changes
+                 * (c) 2010-2020 Google LLC. https://angular.io/
                  * License: MIT
                  */
-
                 (function(factory) {
                     true
                         ? !((__WEBPACK_AMD_DEFINE_FACTORY__ = factory),
@@ -981,6 +1014,10 @@
                         }
                         const __symbol__ = api.symbol;
                         const _uncaughtPromiseErrors = [];
+                        const isDisableWrappingUncaughtPromiseRejection =
+                            global[
+                                __symbol__('DISABLE_WRAPPING_UNCAUGHT_PROMISE_REJECTION')
+                            ] === true;
                         const symbolPromise = __symbol__('Promise');
                         const symbolThen = __symbol__('then');
                         const creationTrace = '__creationTrace__';
@@ -1010,15 +1047,13 @@
                         };
                         api.microtaskDrainDone = () => {
                             while (_uncaughtPromiseErrors.length) {
-                                while (_uncaughtPromiseErrors.length) {
-                                    const uncaughtPromiseError = _uncaughtPromiseErrors.shift();
-                                    try {
-                                        uncaughtPromiseError.zone.runGuarded(() => {
-                                            throw uncaughtPromiseError;
-                                        });
-                                    } catch (error) {
-                                        handleUnhandledRejection(error);
-                                    }
+                                const uncaughtPromiseError = _uncaughtPromiseErrors.shift();
+                                try {
+                                    uncaughtPromiseError.zone.runGuarded(() => {
+                                        throw uncaughtPromiseError;
+                                    });
+                                } catch (error) {
+                                    handleUnhandledRejection(error);
                                 }
                             }
                         };
@@ -1030,7 +1065,7 @@
                             try {
                                 const handler =
                                     Zone[UNHANDLED_PROMISE_REJECTION_HANDLER_SYMBOL];
-                                if (handler && typeof handler === 'function') {
+                                if (typeof handler === 'function') {
                                     handler.call(this, e);
                                 }
                             } catch (err) {}
@@ -1177,24 +1212,32 @@
                                     }
                                     if (queue.length == 0 && state == REJECTED) {
                                         promise[symbolState] = REJECTED_NO_CATCH;
-                                        try {
-                                            // try to print more readable error log
-                                            throw new Error(
-                                                'Uncaught (in promise): ' +
-                                                    readableObjectToString(value) +
-                                                    (value && value.stack
-                                                        ? '\n' + value.stack
-                                                        : ''),
-                                            );
-                                        } catch (err) {
-                                            const error = err;
-                                            error.rejection = value;
-                                            error.promise = promise;
-                                            error.zone = Zone.current;
-                                            error.task = Zone.currentTask;
-                                            _uncaughtPromiseErrors.push(error);
-                                            api.scheduleMicroTask(); // to make sure that it is running
+                                        let uncaughtPromiseError = value;
+                                        if (!isDisableWrappingUncaughtPromiseRejection) {
+                                            // If disable wrapping uncaught promise reject
+                                            // and the rejected value is an Error object,
+                                            // use the value instead of wrapping it.
+                                            try {
+                                                // Here we throws a new Error to print more readable error log
+                                                // and if the value is not an error, zone.js builds an `Error`
+                                                // Object here to attach the stack information.
+                                                throw new Error(
+                                                    'Uncaught (in promise): ' +
+                                                        readableObjectToString(value) +
+                                                        (value && value.stack
+                                                            ? '\n' + value.stack
+                                                            : ''),
+                                                );
+                                            } catch (err) {
+                                                uncaughtPromiseError = err;
+                                            }
                                         }
+                                        uncaughtPromiseError.rejection = value;
+                                        uncaughtPromiseError.promise = promise;
+                                        uncaughtPromiseError.zone = Zone.current;
+                                        uncaughtPromiseError.task = Zone.currentTask;
+                                        _uncaughtPromiseErrors.push(uncaughtPromiseError);
+                                        api.scheduleMicroTask(); // to make sure that it is running
                                     }
                                 }
                             }
@@ -1282,24 +1325,8 @@
                         }
                         const ZONE_AWARE_PROMISE_TO_STRING =
                             'function ZoneAwarePromise() { [native code] }';
+                        const noop = function() {};
                         class ZoneAwarePromise {
-                            constructor(executor) {
-                                const promise = this;
-                                if (!(promise instanceof ZoneAwarePromise)) {
-                                    throw new Error('Must be an instanceof Promise.');
-                                }
-                                promise[symbolState] = UNRESOLVED;
-                                promise[symbolValue] = []; // queue;
-                                try {
-                                    executor &&
-                                        executor(
-                                            makeResolver(promise, RESOLVED),
-                                            makeResolver(promise, REJECTED),
-                                        );
-                                } catch (error) {
-                                    resolvePromise(promise, false, error);
-                                }
-                            }
                             static toString() {
                                 return ZONE_AWARE_PROMISE_TO_STRING;
                             }
@@ -1400,11 +1427,35 @@
                                 }
                                 return promise;
                             }
+                            constructor(executor) {
+                                const promise = this;
+                                if (!(promise instanceof ZoneAwarePromise)) {
+                                    throw new Error('Must be an instanceof Promise.');
+                                }
+                                promise[symbolState] = UNRESOLVED;
+                                promise[symbolValue] = []; // queue;
+                                try {
+                                    executor &&
+                                        executor(
+                                            makeResolver(promise, RESOLVED),
+                                            makeResolver(promise, REJECTED),
+                                        );
+                                } catch (error) {
+                                    resolvePromise(promise, false, error);
+                                }
+                            }
                             get [Symbol.toStringTag]() {
                                 return 'Promise';
                             }
+                            get [Symbol.species]() {
+                                return ZoneAwarePromise;
+                            }
                             then(onFulfilled, onRejected) {
-                                const chainPromise = new this.constructor(null);
+                                let C = this.constructor[Symbol.species];
+                                if (!C || typeof C !== 'function') {
+                                    C = this.constructor || ZoneAwarePromise;
+                                }
+                                const chainPromise = new C(noop);
                                 const zone = Zone.current;
                                 if (this[symbolState] == UNRESOLVED) {
                                     this[symbolValue].push(
@@ -1428,7 +1479,11 @@
                                 return this.then(null, onRejected);
                             }
                             finally(onFinally) {
-                                const chainPromise = new this.constructor(null);
+                                let C = this.constructor[Symbol.species];
+                                if (!C || typeof C !== 'function') {
+                                    C = ZoneAwarePromise;
+                                }
+                                const chainPromise = new C(noop);
                                 chainPromise[symbolFinally] = symbolFinally;
                                 const zone = Zone.current;
                                 if (this[symbolState] == UNRESOLVED) {
@@ -2170,6 +2225,21 @@
                         '^' + ZONE_SYMBOL_PREFIX + '(\\w+)(true|false)$',
                     );
                     const IMMEDIATE_PROPAGATION_SYMBOL = zoneSymbol('propagationStopped');
+                    function prepareEventNames(eventName, eventNameToString) {
+                        const falseEventName =
+                            (eventNameToString
+                                ? eventNameToString(eventName)
+                                : eventName) + FALSE_STR;
+                        const trueEventName =
+                            (eventNameToString
+                                ? eventNameToString(eventName)
+                                : eventName) + TRUE_STR;
+                        const symbol = ZONE_SYMBOL_PREFIX + falseEventName;
+                        const symbolCapture = ZONE_SYMBOL_PREFIX + trueEventName;
+                        zoneSymbolEventNames$1[eventName] = {};
+                        zoneSymbolEventNames$1[eventName][FALSE_STR] = symbol;
+                        zoneSymbolEventNames$1[eventName][TRUE_STR] = symbolCapture;
+                    }
                     function patchEventTarget(_global, apis, patchOptions) {
                         const ADD_EVENT_LISTENER =
                             (patchOptions && patchOptions.add) || ADD_EVENT_LISTENER_STR;
@@ -2339,20 +2409,39 @@
                                     zoneSymbol(patchOptions.prepend)
                                 ] = proto[patchOptions.prepend];
                             }
-                            function checkIsPassive(task) {
+                            /**
+                             * This util function will build an option object with passive option
+                             * to handle all possible input from the user.
+                             */
+                            function buildEventListenerOptions(options, passive) {
                                 if (
                                     !passiveSupported &&
-                                    typeof taskData.options !== 'boolean' &&
-                                    typeof taskData.options !== 'undefined' &&
-                                    taskData.options !== null
+                                    typeof options === 'object' &&
+                                    options
                                 ) {
-                                    // options is a non-null non-undefined object
-                                    // passive is not supported
-                                    // don't pass options as object
-                                    // just pass capture as a boolean
-                                    task.options = !!taskData.options.capture;
-                                    taskData.options = task.options;
+                                    // doesn't support passive but user want to pass an object as options.
+                                    // this will not work on some old browser, so we just pass a boolean
+                                    // as useCapture parameter
+                                    return !!options.capture;
                                 }
+                                if (!passiveSupported || !passive) {
+                                    return options;
+                                }
+                                if (typeof options === 'boolean') {
+                                    return {capture: options, passive: true};
+                                }
+                                if (!options) {
+                                    return {passive: true};
+                                }
+                                if (
+                                    typeof options === 'object' &&
+                                    options.passive !== false
+                                ) {
+                                    return Object.assign(Object.assign({}, options), {
+                                        passive: true,
+                                    });
+                                }
+                                return options;
                             }
                             const customScheduleGlobal = function(task) {
                                 // if there is already a task for the eventName + capture,
@@ -2360,7 +2449,6 @@
                                 if (taskData.isExisting) {
                                     return;
                                 }
-                                checkIsPassive(task);
                                 return nativeAddEventListener.call(
                                     taskData.target,
                                     taskData.eventName,
@@ -2420,7 +2508,6 @@
                                 );
                             };
                             const customScheduleNonGlobal = function(task) {
-                                checkIsPassive(task);
                                 return nativeAddEventListener.call(
                                     taskData.target,
                                     taskData.eventName,
@@ -2468,6 +2555,7 @@
                                     : compareTaskCallbackVsDelegate;
                             const blackListedEvents =
                                 Zone[zoneSymbol('BLACK_LISTED_EVENTS')];
+                            const passiveEvents = _global[zoneSymbol('PASSIVE_EVENTS')];
                             const makeAddListener = function(
                                 nativeListener,
                                 addSource,
@@ -2513,7 +2601,14 @@
                                     ) {
                                         return;
                                     }
-                                    const options = arguments[2];
+                                    const passive =
+                                        passiveSupported &&
+                                        !!passiveEvents &&
+                                        passiveEvents.indexOf(eventName) !== -1;
+                                    const options = buildEventListenerOptions(
+                                        arguments[2],
+                                        passive,
+                                    );
                                     if (blackListedEvents) {
                                         // check black list
                                         for (
@@ -2522,59 +2617,41 @@
                                             i++
                                         ) {
                                             if (eventName === blackListedEvents[i]) {
-                                                return nativeListener.apply(
-                                                    this,
-                                                    arguments,
-                                                );
+                                                if (passive) {
+                                                    return nativeListener.call(
+                                                        target,
+                                                        eventName,
+                                                        delegate,
+                                                        options,
+                                                    );
+                                                } else {
+                                                    return nativeListener.apply(
+                                                        this,
+                                                        arguments,
+                                                    );
+                                                }
                                             }
                                         }
                                     }
-                                    let capture;
-                                    let once = false;
-                                    if (options === undefined) {
-                                        capture = false;
-                                    } else if (options === true) {
-                                        capture = true;
-                                    } else if (options === false) {
-                                        capture = false;
-                                    } else {
-                                        capture = options ? !!options.capture : false;
-                                        once = options ? !!options.once : false;
-                                    }
+                                    const capture = !options
+                                        ? false
+                                        : typeof options === 'boolean'
+                                        ? true
+                                        : options.capture;
+                                    const once =
+                                        options && typeof options === 'object'
+                                            ? options.once
+                                            : false;
                                     const zone = Zone.current;
-                                    const symbolEventNames =
+                                    let symbolEventNames =
                                         zoneSymbolEventNames$1[eventName];
-                                    let symbolEventName;
                                     if (!symbolEventNames) {
-                                        // the code is duplicate, but I just want to get some better performance
-                                        const falseEventName =
-                                            (eventNameToString
-                                                ? eventNameToString(eventName)
-                                                : eventName) + FALSE_STR;
-                                        const trueEventName =
-                                            (eventNameToString
-                                                ? eventNameToString(eventName)
-                                                : eventName) + TRUE_STR;
-                                        const symbol =
-                                            ZONE_SYMBOL_PREFIX + falseEventName;
-                                        const symbolCapture =
-                                            ZONE_SYMBOL_PREFIX + trueEventName;
-                                        zoneSymbolEventNames$1[eventName] = {};
-                                        zoneSymbolEventNames$1[eventName][
-                                            FALSE_STR
-                                        ] = symbol;
-                                        zoneSymbolEventNames$1[eventName][
-                                            TRUE_STR
-                                        ] = symbolCapture;
-                                        symbolEventName = capture
-                                            ? symbolCapture
-                                            : symbol;
-                                    } else {
-                                        symbolEventName =
-                                            symbolEventNames[
-                                                capture ? TRUE_STR : FALSE_STR
-                                            ];
+                                        prepareEventNames(eventName, eventNameToString);
+                                        symbolEventNames =
+                                            zoneSymbolEventNames$1[eventName];
                                     }
+                                    const symbolEventName =
+                                        symbolEventNames[capture ? TRUE_STR : FALSE_STR];
                                     let existingTasks = target[symbolEventName];
                                     let isExisting = false;
                                     if (existingTasks) {
@@ -2699,16 +2776,11 @@
                                     eventName = patchOptions.transferEventName(eventName);
                                 }
                                 const options = arguments[2];
-                                let capture;
-                                if (options === undefined) {
-                                    capture = false;
-                                } else if (options === true) {
-                                    capture = true;
-                                } else if (options === false) {
-                                    capture = false;
-                                } else {
-                                    capture = options ? !!options.capture : false;
-                                }
+                                const capture = !options
+                                    ? false
+                                    : typeof options === 'boolean'
+                                    ? true
+                                    : options.capture;
                                 const delegate = arguments[1];
                                 if (!delegate) {
                                     return nativeRemoveEventListener.apply(
@@ -2901,20 +2973,36 @@
                         return results;
                     }
                     function findEventTasks(target, eventName) {
-                        const foundTasks = [];
-                        for (let prop in target) {
-                            const match = EVENT_NAME_SYMBOL_REGX.exec(prop);
-                            let evtName = match && match[1];
-                            if (evtName && (!eventName || evtName === eventName)) {
-                                const tasks = target[prop];
-                                if (tasks) {
-                                    for (let i = 0; i < tasks.length; i++) {
-                                        foundTasks.push(tasks[i]);
+                        if (!eventName) {
+                            const foundTasks = [];
+                            for (let prop in target) {
+                                const match = EVENT_NAME_SYMBOL_REGX.exec(prop);
+                                let evtName = match && match[1];
+                                if (evtName && (!eventName || evtName === eventName)) {
+                                    const tasks = target[prop];
+                                    if (tasks) {
+                                        for (let i = 0; i < tasks.length; i++) {
+                                            foundTasks.push(tasks[i]);
+                                        }
                                     }
                                 }
                             }
+                            return foundTasks;
                         }
-                        return foundTasks;
+                        let symbolEventName = zoneSymbolEventNames$1[eventName];
+                        if (!symbolEventName) {
+                            prepareEventNames(eventName);
+                            symbolEventName = zoneSymbolEventNames$1[eventName];
+                        }
+                        const captureFalseTasks = target[symbolEventName[FALSE_STR]];
+                        const captureTrueTasks = target[symbolEventName[TRUE_STR]];
+                        if (!captureFalseTasks) {
+                            return captureTrueTasks ? captureTrueTasks.slice() : [];
+                        } else {
+                            return captureTrueTasks
+                                ? captureFalseTasks.concat(captureTrueTasks)
+                                : captureFalseTasks.slice();
+                        }
                     }
                     function patchEventPrototype(global, api) {
                         const Event = global['Event'];
@@ -3136,7 +3224,7 @@
                         'unhandledrejection',
                         'unload',
                         'userproximity',
-                        'vrdisplyconnected',
+                        'vrdisplayconnected',
                         'vrdisplaydisconnected',
                         'vrdisplaypresentchange',
                     ];
@@ -3514,14 +3602,6 @@
                             REMOVE_EVENT_LISTENER_STR,
                         });
                     });
-
-                    /**
-                     * @license
-                     * Copyright Google Inc. All Rights Reserved.
-                     *
-                     * Use of this source code is governed by an MIT-style license that can be
-                     * found in the LICENSE file at https://angular.io/license
-                     */
 
                     /**
                      * @license
@@ -4068,14 +4148,6 @@
                             ] = findPromiseRejectionHandler('rejectionhandled');
                         }
                     });
-
-                    /**
-                     * @license
-                     * Copyright Google Inc. All Rights Reserved.
-                     *
-                     * Use of this source code is governed by an MIT-style license that can be
-                     * found in the LICENSE file at https://angular.io/license
-                     */
                 });
 
                 /***/
@@ -4089,11 +4161,17 @@
             /***/ function(module, __webpack_exports__, __webpack_require__) {
                 'use strict';
                 __webpack_require__.r(__webpack_exports__);
-                /* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+                /* harmony import */ var _ng_web_apis_audio_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+                    /*! @ng-web-apis/audio/polyfill */ './node_modules/@ng-web-apis/audio/polyfill.js',
+                );
+                /* harmony import */ var _ng_web_apis_audio_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+                    _ng_web_apis_audio_polyfill__WEBPACK_IMPORTED_MODULE_0__,
+                );
+                /* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
                     /*! zone.js/dist/zone */ './node_modules/zone.js/dist/zone-evergreen.js',
                 );
-                /* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
-                    zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_0__,
+                /* harmony import */ var zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+                    zone_js_dist_zone__WEBPACK_IMPORTED_MODULE_1__,
                 );
                 /**
                  * This file includes polyfills needed by Angular and is loaded before the app.
@@ -4147,6 +4225,7 @@
                 /***************************************************************************************************
                  * Zone JS is required by default for Angular itself.
                  */
+
                 // Included with Angular CLI.
                 /***************************************************************************************************
                  * APPLICATION IMPORTS
