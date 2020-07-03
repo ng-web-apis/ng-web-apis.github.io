@@ -230,7 +230,6 @@ function _classCallCheck(instance, Constructor) {
                             '_blank',
                             1,
                             'link',
-                            'wip',
                         ],
                         [
                             'src',
