@@ -119,7 +119,7 @@
                 ]({
                     type: AppComponent,
                     selectors: [['main']],
-                    decls: 81,
+                    decls: 90,
                     vars: 12,
                     consts: [
                         [
@@ -259,6 +259,26 @@
                             '64',
                             'alt',
                             'Web MIDI API logo',
+                            1,
+                            'icon',
+                        ],
+                        [
+                            'href',
+                            'https://github.com/ng-web-apis/mutation-observer',
+                            'target',
+                            '_blank',
+                            1,
+                            'link',
+                        ],
+                        [
+                            'src',
+                            '/dist/assets/images/mutation-observer.svg',
+                            'width',
+                            '64',
+                            'height',
+                            '64',
+                            'alt',
+                            'Mutation Observer API logo',
                             1,
                             'icon',
                         ],
@@ -614,12 +634,12 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 66,
-                                'Payment Request',
+                                'Mutation Observer',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 67,
-                                ' A library for declarative use of ',
+                                ' An library for declarative use of ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
                                 68,
@@ -627,7 +647,7 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 69,
-                                'Payment Request API',
+                                'Mutation Observer API',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
@@ -656,12 +676,12 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 75,
-                                'Resize Observer',
+                                'Payment Request',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 76,
-                                ' An library for declarative use of ',
+                                ' A library for declarative use of ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
                                 77,
@@ -669,7 +689,7 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 78,
-                                'Resize Observer API',
+                                'Payment Request API',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
@@ -681,6 +701,48 @@
                                 80,
                                 'img',
                                 17,
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                81,
+                                'a',
+                                18,
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                82,
+                                'div',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                83,
+                                'h2',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                84,
+                                'Resize Observer',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                85,
+                                ' An library for declarative use of ',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                86,
+                                'strong',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                87,
+                                'Resize Observer API',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                88,
+                                ' with Angular ',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
+                                89,
+                                'img',
+                                19,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                         }
@@ -705,7 +767,7 @@
                                 'not-supported',
                                 !ctx.midiSupport,
                             );
-                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵadvance'](9);
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵadvance'](18);
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵclassProp'](
                                 'not-supported',
                                 !ctx.paymentRequestSupport,
