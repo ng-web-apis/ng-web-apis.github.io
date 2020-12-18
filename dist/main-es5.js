@@ -160,7 +160,7 @@ function _classCallCheck(instance, Constructor) {
                 ]({
                     type: AppComponent,
                     selectors: [['main']],
-                    decls: 90,
+                    decls: 108,
                     vars: 12,
                     consts: [
                         [
@@ -360,6 +360,46 @@ function _classCallCheck(instance, Constructor) {
                             '64',
                             'alt',
                             'Resize Observer API logo',
+                            1,
+                            'icon',
+                        ],
+                        [
+                            'href',
+                            'https://github.com/ng-web-apis/speech',
+                            'target',
+                            '_blank',
+                            1,
+                            'link',
+                        ],
+                        [
+                            'src',
+                            '/dist/assets/images/speech.svg',
+                            'width',
+                            '64',
+                            'height',
+                            '64',
+                            'alt',
+                            'Web Speech API logo',
+                            1,
+                            'icon',
+                        ],
+                        [
+                            'href',
+                            'https://github.com/ng-web-apis/workers',
+                            'target',
+                            '_blank',
+                            1,
+                            'link',
+                        ],
+                        [
+                            'src',
+                            '/dist/assets/images/workers.svg',
+                            'width',
+                            '64',
+                            'height',
+                            '64',
+                            'alt',
+                            'Worker API logo',
                             1,
                             'icon',
                         ],
@@ -666,7 +706,7 @@ function _classCallCheck(instance, Constructor) {
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 49,
-                                ' An library for declarative use of ',
+                                ' A library for declarative use of ',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
@@ -776,7 +816,7 @@ function _classCallCheck(instance, Constructor) {
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 67,
-                                ' An library for declarative use of ',
+                                ' A library for declarative use of ',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
@@ -886,7 +926,7 @@ function _classCallCheck(instance, Constructor) {
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 85,
-                                ' An library for declarative use of ',
+                                ' A library for declarative use of ',
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
@@ -912,6 +952,116 @@ function _classCallCheck(instance, Constructor) {
                                 89,
                                 'img',
                                 19,
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                90,
+                                'a',
+                                20,
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                91,
+                                'div',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                92,
+                                'h2',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                93,
+                                'Speech',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                94,
+                                ' A library for comfortable use of ',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                95,
+                                'strong',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                96,
+                                'Web Speech API',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                97,
+                                ' with Angular ',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
+                                98,
+                                'img',
+                                21,
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                99,
+                                'a',
+                                22,
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                100,
+                                'div',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                101,
+                                'h2',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                102,
+                                'Workers',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                103,
+                                ' A library for use of ',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                104,
+                                'strong',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                105,
+                                'Web Workers',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                106,
+                                ' as RxJS Observables with Angular ',
+                            );
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
+                                107,
+                                'img',
+                                23,
                             );
 
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();

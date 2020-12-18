@@ -58,6 +58,10 @@ a {
     transition: box-shadow 0.3s;
 }
 
+.link:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
 .not-supported {
     opacity: 0.5;
 }
@@ -74,10 +78,6 @@ a {
     display: block;
     font-size: 0.6em;
     color: red;
-}
-
-.link:hover {
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
 }
 
 .icon {
