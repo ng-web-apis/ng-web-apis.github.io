@@ -4,6 +4,7 @@ import {GEOLOCATION_SUPPORT} from '@ng-web-apis/geolocation';
 import {INTERSECTION_OBSERVER_SUPPORT} from '@ng-web-apis/intersection-observer';
 import {MIDI_SUPPORT} from '@ng-web-apis/midi';
 import {PAYMENT_REQUEST_SUPPORT} from '@ng-web-apis/payment-request';
+import {PERMISSIONS_SUPPORT} from '@ng-web-apis/permissions';
 import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 
 @Component({
@@ -18,5 +19,6 @@ export class AppComponent {
         @Inject(RESIZE_OBSERVER_SUPPORT) readonly resizeSupport: boolean,
         @Inject(MIDI_SUPPORT) readonly midiSupport: boolean,
         @Inject(WEB_AUDIO_SUPPORT) readonly audioSupport: boolean,
+        @Inject(PERMISSIONS_SUPPORT) readonly permissionsSupport: boolean,
     ) {}
 }

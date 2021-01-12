@@ -25,6 +25,7 @@
         "@ng-web-apis/intersection-observer": "latest",
         "@ng-web-apis/midi": "latest",
         "@ng-web-apis/payment-request": "latest",
+        "@ng-web-apis/permissions": "latest",
         "@ng-web-apis/resize-observer": "latest",
         "rxjs": "~6.5.5",
         "tslib": "^1.10.0",

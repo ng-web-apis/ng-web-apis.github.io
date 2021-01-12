@@ -59,7 +59,10 @@
                 /* harmony import */ var _ng_web_apis_payment_request__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
                     /*! @ng-web-apis/payment-request */ './node_modules/@ng-web-apis/payment-request/__ivy_ngcc__/fesm2015/ng-web-apis-payment-request.js',
                 );
-                /* harmony import */ var _ng_web_apis_resize_observer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+                /* harmony import */ var _ng_web_apis_permissions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+                    /*! @ng-web-apis/permissions */ './node_modules/@ng-web-apis/permissions/__ivy_ngcc__/fesm2015/ng-web-apis-permissions.js',
+                );
+                /* harmony import */ var _ng_web_apis_resize_observer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
                     /*! @ng-web-apis/resize-observer */ './node_modules/@ng-web-apis/resize-observer/__ivy_ngcc__/fesm2015/ng-web-apis-resize-observer.js',
                 );
 
@@ -71,6 +74,7 @@
                         resizeSupport,
                         midiSupport,
                         audioSupport,
+                        permissionsSupport,
                     ) {
                         this.paymentRequestSupport = paymentRequestSupport;
                         this.geolocationSupport = geolocationSupport;
@@ -78,6 +82,7 @@
                         this.resizeSupport = resizeSupport;
                         this.midiSupport = midiSupport;
                         this.audioSupport = audioSupport;
+                        this.permissionsSupport = permissionsSupport;
                     }
                 }
                 AppComponent.ɵfac = function AppComponent_Factory(t) {
@@ -98,7 +103,7 @@
                             ],
                         ),
                         _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵdirectiveInject'](
-                            _ng_web_apis_resize_observer__WEBPACK_IMPORTED_MODULE_6__[
+                            _ng_web_apis_resize_observer__WEBPACK_IMPORTED_MODULE_7__[
                                 'RESIZE_OBSERVER_SUPPORT'
                             ],
                         ),
@@ -112,6 +117,11 @@
                                 'WEB_AUDIO_SUPPORT'
                             ],
                         ),
+                        _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵdirectiveInject'](
+                            _ng_web_apis_permissions__WEBPACK_IMPORTED_MODULE_6__[
+                                'PERMISSIONS_SUPPORT'
+                            ],
+                        ),
                     );
                 };
                 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__[
@@ -119,8 +129,8 @@
                 ]({
                     type: AppComponent,
                     selectors: [['main']],
-                    decls: 108,
-                    vars: 12,
+                    decls: 116,
+                    vars: 14,
                     consts: [
                         [
                             'href',
@@ -299,6 +309,26 @@
                             '64',
                             'alt',
                             'Payment Request API logo',
+                            1,
+                            'icon',
+                        ],
+                        [
+                            'href',
+                            'https://github.com/ng-web-apis/permissions',
+                            'target',
+                            '_blank',
+                            1,
+                            'link',
+                        ],
+                        [
+                            'src',
+                            '/dist/assets/images/permissions.svg',
+                            'width',
+                            '64',
+                            'height',
+                            '64',
+                            'alt',
+                            'Permissions API logo',
                             1,
                             'icon',
                         ],
@@ -758,12 +788,12 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 84,
-                                'Resize Observer',
+                                'Permissions',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 85,
-                                ' A library for declarative use of ',
+                                ' A library for Observable-based use of ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
                                 86,
@@ -771,102 +801,140 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 87,
-                                'Resize Observer API',
+                                'Permissions API',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
-                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                88,
-                                ' with Angular ',
-                            );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
-                                89,
+                                88,
                                 'img',
                                 19,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                90,
+                                89,
                                 'a',
                                 20,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                91,
+                                90,
                                 'div',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                92,
+                                91,
                                 'h2',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                93,
-                                'Speech',
+                                92,
+                                'Resize Observer',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                94,
-                                ' A library for comfortable use of ',
+                                93,
+                                ' A library for declarative use of ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                95,
+                                94,
                                 'strong',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                96,
-                                'Web Speech API',
+                                95,
+                                'Resize Observer API',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                97,
+                                96,
                                 ' with Angular ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
-                                98,
+                                97,
                                 'img',
                                 21,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                99,
+                                98,
                                 'a',
                                 22,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                100,
+                                99,
                                 'div',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                101,
+                                100,
                                 'h2',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                101,
+                                'Speech',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 102,
+                                ' A library for comfortable use of ',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                103,
+                                'strong',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                104,
+                                'Web Speech API',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                105,
+                                ' with Angular ',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
+                                106,
+                                'img',
+                                23,
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                107,
+                                'a',
+                                24,
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                108,
+                                'div',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                109,
+                                'h2',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                110,
                                 'Workers',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                103,
+                                111,
                                 ' A library for use of ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
-                                104,
+                                112,
                                 'strong',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                105,
+                                113,
                                 'Web Workers',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
-                                106,
+                                114,
                                 ' as RxJS Observables with Angular ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
-                                107,
+                                115,
                                 'img',
-                                23,
+                                25,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                         }
@@ -897,6 +965,11 @@
                                 !ctx.paymentRequestSupport,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵadvance'](9);
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵclassProp'](
+                                'not-supported',
+                                !ctx.permissionsSupport,
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵadvance'](8);
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵclassProp'](
                                 'not-supported',
                                 !ctx.resizeSupport,
@@ -981,7 +1054,7 @@
                                                     'Inject'
                                                 ],
                                             args: [
-                                                _ng_web_apis_resize_observer__WEBPACK_IMPORTED_MODULE_6__[
+                                                _ng_web_apis_resize_observer__WEBPACK_IMPORTED_MODULE_7__[
                                                     'RESIZE_OBSERVER_SUPPORT'
                                                 ],
                                             ],
@@ -1015,6 +1088,22 @@
                                             args: [
                                                 _ng_web_apis_audio__WEBPACK_IMPORTED_MODULE_1__[
                                                     'WEB_AUDIO_SUPPORT'
+                                                ],
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: undefined,
+                                    decorators: [
+                                        {
+                                            type:
+                                                _angular_core__WEBPACK_IMPORTED_MODULE_0__[
+                                                    'Inject'
+                                                ],
+                                            args: [
+                                                _ng_web_apis_permissions__WEBPACK_IMPORTED_MODULE_6__[
+                                                    'PERMISSIONS_SUPPORT'
                                                 ],
                                             ],
                                         },
