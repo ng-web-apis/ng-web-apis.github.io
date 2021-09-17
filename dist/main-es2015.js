@@ -129,7 +129,7 @@
                 ]({
                     type: AppComponent,
                     selectors: [['main']],
-                    decls: 116,
+                    decls: 125,
                     vars: 14,
                     consts: [
                         [
@@ -369,6 +369,26 @@
                             '64',
                             'alt',
                             'Web Speech API logo',
+                            1,
+                            'icon',
+                        ],
+                        [
+                            'href',
+                            'https://github.com/ng-web-apis/storage',
+                            'target',
+                            '_blank',
+                            1,
+                            'link',
+                        ],
+                        [
+                            'src',
+                            '/dist/assets/images/storage.svg',
+                            'width',
+                            '64',
+                            'height',
+                            '64',
+                            'alt',
+                            'Web Storage API logo',
                             1,
                             'icon',
                         ],
@@ -910,12 +930,12 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 110,
-                                'Workers',
+                                'Storage',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 111,
-                                ' A library for use of ',
+                                ' A library for comfortable use of ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
                                 112,
@@ -923,18 +943,60 @@
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 113,
-                                'Web Workers',
+                                'Web Storage API',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
                                 114,
-                                ' as RxJS Observables with Angular ',
+                                ' with Angular ',
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
                                 115,
                                 'img',
                                 25,
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                116,
+                                'a',
+                                26,
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                117,
+                                'div',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                118,
+                                'h2',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                119,
+                                'Workers',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                120,
+                                ' A library for use of ',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementStart'](
+                                121,
+                                'strong',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                122,
+                                'Web Workers',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵtext'](
+                                123,
+                                ' as RxJS Observables with Angular ',
+                            );
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
+                            _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelement'](
+                                124,
+                                'img',
+                                27,
                             );
                             _angular_core__WEBPACK_IMPORTED_MODULE_0__['ɵɵelementEnd']();
                         }
